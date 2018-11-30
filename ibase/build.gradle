@@ -1,0 +1,69 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.dccjll'
+
+android {
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
+    defaultConfig {
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode config.versionCode
+        versionName config.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //support
+    api "com.android.support:support-v4:$rootProject.ext.dependencies.supportLibraryVersion"
+    //appcompat
+    api "com.android.support:appcompat-v7:$rootProject.ext.dependencies.supportLibraryVersion"
+    //kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    //微信SDKS
+    api "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:$rootProject.ext.dependencies.wechatVersion"
+    //谷歌zxing扫码库
+    api "com.github.dessmann:zxing:$rootProject.ext.dependencies.dessmannzxingVersion"
+    //个推
+    api "com.getui:sdk:$rootProject.ext.dependencies.getuisdkVersion"
+    //arouter-api
+    api("com.alibaba:arouter-api:$rootProject.ext.dependencies.alibabaArouterApiVersion", {
+        exclude group: 'com.android.support'
+    })
+    //retrofit
+    api "com.squareup.retrofit2:retrofit:$rootProject.ext.dependencies.retrofitVersion"
+        //用于将请求结果转换为实体类型
+    api "com.squareup.retrofit2:converter-gson:$rootProject.ext.dependencies.retrofitVersion"
+        //适配RxJava2.0
+    api "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.dependencies.retrofitVersion"
+        //用于将请求结果转换为基本类型，一般为String
+    /*api 'com.squareup.retrofit2:converter-scalars:2.4.0'*/
+    //okhttp3
+    api "com.squareup.okhttp3:okhttp:$rootProject.ext.dependencies.okhttp3Version"
+        //配置缓存策略，必须跟okhttp同一版本号，否则会报错：Failed resolution of: Lokhttp3/internal/Platform
+    api "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.dependencies.okhttp3Version"
+    //rxjava
+    api "io.reactivex.rxjava2:rxjava:$rootProject.ext.dependencies.reactivexRxjavaVersion"
+    //rxandroid 解决线程调度问题
+    api "io.reactivex.rxjava2:rxandroid:$rootProject.ext.dependencies.reactivexRxandroidVersion"
+    //glide
+    api "com.github.bumptech.glide:glide:$rootProject.ext.dependencies.bumptechGlideVersion"
+}
