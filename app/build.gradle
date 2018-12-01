@@ -28,6 +28,6 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-    api "com.android.support.constraint:constraint-layout:$rootProject.ext.dependencies.constraintLayoutVersion"
+    compile "com.android.support.constraint:constraint-layout:$rootProject.ext.dependencies.constraintLayoutVersion"
     implementation project(':ibase')
 }
