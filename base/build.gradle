@@ -38,16 +38,6 @@ dependencies {
     compile "com.android.support:appcompat-v7:$rootProject.ext.dependencies.supportLibraryVersion"
     //kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-    //微信SDKS
-    compile "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:$rootProject.ext.dependencies.wechatVersion"
-    //谷歌zxing扫码库
-    compile "com.github.dessmann:zxing:$rootProject.ext.dependencies.dessmannzxingVersion"
-    //个推
-    compile "com.getui:sdk:$rootProject.ext.dependencies.getuisdkVersion"
-    //arouter-api
-    compile("com.alibaba:arouter-api:$rootProject.ext.dependencies.alibabaArouterApiVersion", {
-        exclude group: 'com.android.support'
-    })
     //retrofit
     compile "com.squareup.retrofit2:retrofit:$rootProject.ext.dependencies.retrofitVersion"
         //用于将请求结果转换为实体类型
@@ -64,6 +54,4 @@ dependencies {
     compile "io.reactivex.rxjava2:rxjava:$rootProject.ext.dependencies.reactivexRxjavaVersion"
     //rxandroid 解决线程调度问题
     compile "io.reactivex.rxjava2:rxandroid:$rootProject.ext.dependencies.reactivexRxandroidVersion"
-    //glide
-    compile "com.github.bumptech.glide:glide:$rootProject.ext.dependencies.bumptechGlideVersion"
 }
