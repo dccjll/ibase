@@ -16,8 +16,8 @@ import java.util.regex.Pattern
  * 2018-11-22 13:08:39 Thursday
  * 描述：日志配置
  */
-class LogConfig(val consoleSwitch: Boolean? = true,//是否开启控制台日志打印 true 开启 false 关闭
-                val fileSwitch: Boolean? = true,//是否开启日志写入文件 true 开启 false 关闭
+class LogConfig(var consoleSwitch: Boolean? = true,//是否开启控制台日志打印 true 开启 false 关闭
+                var fileSwitch: Boolean? = true,//是否开启日志写入文件 true 开启 false 关闭
                 val storageType: StorageType = StorageType.APP,//日志存储类型
                 var logFileRelativePath: String? = "",//日志文件存储的相对路径
                 var logFileNamePreSuffix: String? = "",//日志文件名的前缀
