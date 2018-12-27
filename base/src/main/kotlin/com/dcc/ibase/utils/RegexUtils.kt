@@ -12,7 +12,7 @@ object RegexUtils {
     /**
      * 正则通用验证
      */
-    private fun checkRegex(res: String?, regex: String): Boolean {
+    fun checkRegex(res: String?, regex: String): Boolean {
         val pattern = Pattern.compile(regex)
         val matcher = pattern.matcher(res)
         return matcher.matches()
